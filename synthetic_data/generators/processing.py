@@ -587,6 +587,7 @@ class Decoder():
 	def decode(self,
 			   org_file,
 			   syn_file,
+		   	   output_name=None
 			   dtype=None):
 		""" 
 		The function decodes the file into a usable data file. 
@@ -611,6 +612,9 @@ class Decoder():
 			df_raw = self.__read_data(org_file, dtype)
 			cols = df_raw.columns
 
+			
 		df_converted = self.__decode(np.clip(syn_data, 0, 1), cols, lims, mm)
-
-		df_converted.to_csv(org_file[:-4] + "_decoded.csv", index=False)
+		if output_name:
+			df_converted.to_csv(output_name, index=False)
+		else:
+			df_converted.to_csv(org_file[:-4] + "_decoded.csv", index=False)
