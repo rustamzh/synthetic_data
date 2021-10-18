@@ -587,7 +587,7 @@ class Decoder():
 	def decode(self,
 			   org_file,
 			   syn_file,
-		   	   output_name=None
+		   	   output_name=None,
 			   dtype=None):
 		""" 
 		The function decodes the file into a usable data file. 
